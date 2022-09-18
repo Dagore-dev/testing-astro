@@ -3,23 +3,115 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Página de formulario">
-  <h1>Página de formulario</h1>
+  <h1>Crea tu cuenta ahora</h1>
+
   <form>
-    <div>
-      <label for="name">Nombre</label>
-      <input type="text" name="name" id="name" />
+    <div class="form__field">
+      <input type="text" value="Alexander Parkinson" required />
+      <label>Nombre</label>
     </div>
-
-    <div>
-      <label for="age">Edad</label>
-      <input type="number" name="age" id="age" />
+    <div class="form__field">
+      <input type="text" value="vlockn@gmail.com" required />
+      <label>Email</label>
     </div>
-
-    <div>
-      <label for="email">Correo electrónico</label>
-      <input type="email" name="email" id="email" />
+    <div class="form__field">
+      <input type="password" required />
+      <label>Contraseña</label>
     </div>
-
-    <button>Enviar</button>
+    <div class="action">
+      <button class="action-button">Acceder</button>
+    </div>
   </form>
+
+  <div class="card-info">
+    <p>
+      Al registrarse acepta nuestros <a href="#">Términos y Condiciones</a>
+    </p>
+  </div>
 </Layout>
+<style>
+  :root {
+    --pending-field-color: #8597a3;
+    --fullfill-field-color: #6658d3;
+  }
+  
+  form {
+    padding: 2rem 1rem 0;
+  }
+
+  .form__field {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 1.5rem;
+  }
+
+  .form__field + .form__field {
+    margin-top: 1.5rem;
+  }
+
+  label {
+    color: var(--pending-field-color);
+    position: absolute;
+    top: 1.5rem;
+    transition: 0.25s ease;
+  }
+
+  input {
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #eee;
+    font: inherit;
+    font-size: 1.125rem;
+    padding: 0.25rem 0;
+  }
+
+  input:focus,
+  input:valid {
+    outline: 0;
+    border-bottom-color: var(--fullfill-field-color);
+  }
+
+  input:focus + label,
+  input:valid + label {
+    color: var(--fullfill-field-color);
+    transform: translateY(-1.5rem);
+  }
+
+  .action {
+    margin-top: 2rem;
+  }
+
+  .action-button {
+    font: inherit;
+    font-size: 1.25rem;
+    padding: 1em;
+    width: 100%;
+    font-weight: 500;
+    background-color: var(--fullfill-field-color);
+    border-radius: 6px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .action-button:focus {
+    outline: 0;
+  }
+
+  .card-info {
+    padding: 1rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--pending-field-color);
+  }
+
+  .card-info a {
+    display: block;
+    color: var(--fullfill-field-color);
+    text-decoration: none;
+  }
+</style>
