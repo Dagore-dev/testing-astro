@@ -1,5 +1,8 @@
 <header>
-  <span><a href="./index.html">Mi web</a></span>
+  <a href="./index.html">
+    <img src="/favicon.svg" alt="Logo" width="38" height="54">
+    <span>Mi web</span>
+  </a>
   <span class="flex-spacer"></span>
   <nav>
     <ul>
@@ -29,6 +32,11 @@
     color: #fff;
     padding: 1rem;
     white-space: nowrap;
+  }
+
+  a[href='./index.html'] {
+    display: flex;
+    align-items: center;
   }
 
   @media screen and (min-width: 768px) {
