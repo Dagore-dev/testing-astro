@@ -1,0 +1,40 @@
+---
+import H1 from "../../components/H1.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const { src } = Astro.params
+const { alt, width, height } = Astro.props
+
+export function getStaticPaths () {
+  return [
+    { params: { src: '1.jpg' }, props: { alt: '1', width: 259, height: 194 } },
+    { params: { src: '2.jpeg' }, props: { alt: '2', width: 590, height: 393 } },
+    { params: { src: '3.jpg' }, props: { alt: '3', width: 275, height: 183 } },
+    { params: { src: '4.jpg' }, props: { alt: '4', width: 275, height: 183 } },
+    { params: { src: '5.jpg' }, props: { alt: '5', width: 1080, height: 720 } },
+    { params: { src: '6.jpg' }, props: { alt: '6', width: 3000, height: 2000 } },
+    { params: { src: '7.jpg' }, props: { alt: '7', width: 259, height: 194 } },
+    { params: { src: '8.jpg' }, props: { alt: '8', width: 508, height: 339 } },
+    { params: { src: '9.jpg' }, props: { alt: '9', width: 275, height: 183 } },
+    { params: { src: '10.jpg' }, props: { alt: '10', width: 275, height: 183 } },
+  ]
+}
+---
+<Layout title={alt}>
+  <div class="container">
+    <H1>Detalle de la imagen {alt}</H1>
+    <img src={`/assets/${src}`} alt={alt} width={width} height={height}>
+  </div>
+</Layout>
+<style>
+  .container {
+    display: grid;
+    place-items: center;
+  }
+
+  .container img {
+    object-fit: contain;
+    object-position: top center;
+    max-height: 100vh;
+  }
+</style>

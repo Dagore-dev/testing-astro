@@ -1,35 +1,70 @@
 ---
 import H1 from '../components/H1.astro';
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
+const imgRoute = '/img/'
 ---
 
 <Layout title="Página de galería">
   <H1>Página de galería</H1>
 
   <div class="container">
-    <img src="/assets/1.jpg" alt="1" width="259" height="194">
-    <img src="/assets/2.jpeg" alt="2" width="590" height="393">
-    <img src="/assets/3.jpg" alt="3" width="275" height="183">
-    <img src="/assets/4.jpg" alt="4" width="275" height="183">
-    <img src="/assets/5.jpg" alt="5" width="1080" height="720">
-    <img src="/assets/6.jpg" alt="6" width="3000" height="2000">
-    <img src="/assets/7.jpg" alt="7" width="259" height="194">
-    <img src="/assets/8.jpg" alt="8" width="508" height="339">
-    <img src="/assets/9.jpg" alt="9" width="275" height="183">
-    <img src="/assets/10.jpg" alt="10" width="275" height="183">
+    <a href={`${imgRoute}1.jpg`}>
+      <img src="/assets/1.jpg" alt="1" width="259" height="194">
+    </a>
+
+    <a href={`${imgRoute}2.jpeg`}>
+      <img src="/assets/2.jpeg" alt="2" width="590" height="393">
+    </a>
+
+    <a href={`${imgRoute}3.jpg`}>
+      <img src="/assets/3.jpg" alt="3" width="275" height="183">
+    </a>
+
+    <a href={`${imgRoute}4.jpg`}>
+      <img src="/assets/4.jpg" alt="4" width="275" height="183">
+    </a>
+
+    <a href={`${imgRoute}5.jpg`}>
+      <img src="/assets/5.jpg" alt="5" width="1080" height="720">
+    </a>
+
+    <a href={`${imgRoute}6.jpg`}>
+      <img src="/assets/6.jpg" alt="6" width="3000" height="2000">
+    </a>
+
+    <a href={`${imgRoute}7.jpg`}>
+      <img src="/assets/7.jpg" alt="7" width="259" height="194">
+    </a>
+
+    <a href={`${imgRoute}8.jpg`}>
+      <img src="/assets/8.jpg" alt="8" width="508" height="339">
+    </a>
+
+    <a href={`${imgRoute}9.jpg`}>
+      <img src="/assets/9.jpg" alt="9" width="275" height="183">
+    </a>
+    
+    <a href={`${imgRoute}10.jpg`}>
+      <img src="/assets/10.jpg" alt="10" width="275" height="183">
+    </a>
   </div>
 </Layout>
 <style>
   .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    justify-content: center;
     align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
   }
 
   .container img {
     padding: .5rem;
-    object-fit: scale-down;
+    object-fit: cover;
     max-height: 400px;
+  }
+
+  .container img:hover {
+    scale: 1.1;
+    cursor: pointer;
   }
 </style>
