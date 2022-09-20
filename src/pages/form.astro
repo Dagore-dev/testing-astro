@@ -1,9 +1,10 @@
 ---
+import H1 from "../components/H1.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Página de formulario">
-  <h1>Crea tu cuenta ahora</h1>
+  <H1>Crea tu cuenta ahora</H1>
 
   <form>
     <div class="form__field">
@@ -30,10 +31,7 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </Layout>
 <style>
-  :root {
-    --pending-field-color: #8597a3;
-    --fullfill-field-color: #6658d3;
-  }
+
   
   form {
     padding: 2rem 1rem 0;
@@ -72,12 +70,12 @@ import Layout from "../layouts/Layout.astro";
   input:focus,
   input:valid {
     outline: 0;
-    border-bottom-color: var(--fullfill-field-color);
+    border-bottom-color: var(--fullfil-field-color);
   }
 
   input:focus + label,
   input:valid + label {
-    color: var(--fullfill-field-color);
+    color: var(--fullfil-field-color);
     transform: translateY(-1.5rem);
   }
 
@@ -91,7 +89,7 @@ import Layout from "../layouts/Layout.astro";
     padding: 1em;
     width: 100%;
     font-weight: 500;
-    background-color: var(--fullfill-field-color);
+    background-color: var(--fullfil-field-color);
     border-radius: 6px;
     color: #fff;
     border: 0;
@@ -111,7 +109,7 @@ import Layout from "../layouts/Layout.astro";
 
   .card-info a {
     display: block;
-    color: var(--fullfill-field-color);
+    color: var(--fullfil-field-color);
     text-decoration: none;
   }
 </style>
